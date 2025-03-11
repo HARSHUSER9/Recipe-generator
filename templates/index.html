@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recipe Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #ff758c;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #ff3e6b;
+        }
+
+        button {
+            background: #ff3e6b;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #c92a52;
+            transform: scale(1.05);
+        }
+
+        .recipe-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        .recipe-container h2 {
+            color: #ff3e6b;
+            border-bottom: 2px solid #ff3e6b;
+            padding-bottom: 5px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 YOUR RECIPE</h1>
+        <form method="post">
+            <input type="text" id="dish" name="dish" placeholder="Enter a dish name..." required>
+            <button type="submit">Get Recipe</button>
+        </form>
+
+        {% if recipe %}
+            <div class="recipe-container">
+                <h2>Recipe:</h2>
+                <pre>{{ recipe }}</pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
